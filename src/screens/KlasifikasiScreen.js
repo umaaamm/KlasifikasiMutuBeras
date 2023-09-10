@@ -19,9 +19,8 @@ const KlasifikasiScreen = ({ navigation }) => {
     const getImageFromGalery = async () => {
         const result = await launchImageLibrary({ includeBase64: true })
 
-        setUrlImage(result.assets[0].uri)
-
         if (!result.didCancel) {
+            setUrlImage(result.assets[0].uri)
             setImageResource({
                 uri: `data:${result.assets[0].type};base64,${result.assets[0].base64}`
             })
